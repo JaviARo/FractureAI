@@ -92,7 +92,6 @@ body #canvas {
   animation: showTitle 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 body #prediction {
-  margin-top: 5vh;
   animation: showSubtitle 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 body #back-button-container {
@@ -316,6 +315,9 @@ body #back-button-container #back-button p {
   }
   h1 {
     margin-top: 10vh;
+  }
+  #prediction {
+    margin-top: 5vh;
   }
 }
 @media only screen and (min-width: 768px) {

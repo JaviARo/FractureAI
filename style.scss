@@ -116,7 +116,6 @@ body {
   }
 
   #prediction {
-    margin-top: 5vh;
     animation: showSubtitle 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
@@ -389,6 +388,10 @@ body {
 
   h1 {
     margin-top: 10vh;
+  }
+
+  #prediction {
+    margin-top: 5vh;
   }
 }
 
