@@ -1,0 +1,396 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap');
+$mindaro: #cee397;
+$maya-blue: #79BEEE;
+$oxford-blue: #0A122A;
+$delft-blue: #16285c;
+$lavender: #D8D8F6;
+$dim-gray: #686963;
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, $mindaro, $maya-blue, $mindaro);
+  background-size: 400% 400%;
+  animation: backgroundAnimation 15s ease infinite;
+
+  transition: opacity 0.3s ease-in-out;
+
+  h2,
+  p {
+    font-family: 'Satoshi', sans-serif;
+  }
+
+  h1 {
+    color: $oxford-blue;
+    font-family: "Alegreya Sans SC", sans-serif;
+    font-weight: 500;
+    animation: showTitle 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin-top: 10vh;
+  }
+
+  h2 {
+    color: $dim-gray;
+    animation: showSubtitle 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-align: center;
+  }
+
+  #subtitle {
+    width: 80%;
+  }
+
+  #buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15vh;
+
+    .button-container {
+      border-radius: 10px;
+      position: relative;
+      background-color: $dim-gray;
+
+      .button {
+        background-color: $oxford-blue;
+        border-radius: 10px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: transform ease 0.3s;
+        position: absolute;
+
+        &:hover {
+          transform: translateY(-10px) translateX(-10px);
+          cursor: pointer
+        }
+
+        p {
+          width: 80%;
+          text-align: center;
+          color: $lavender;
+        }
+
+        input {
+          height: 100%;
+          width: 100%;
+          opacity: 0;
+          position: absolute;
+        }
+      }
+    }
+
+    .draggable {
+      background-color: $delft-blue !important;
+    }
+
+    #bc-1 {
+      animation: showButton1 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    #bc-2 {
+      animation: showButton2 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .hide-bc-1 {
+      animation: hideButton1 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
+
+    .hide-bc-2 {
+      animation: hideButton2 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
+  }
+
+  #image,
+  #canvas {
+    height: 20vw;
+    max-width: 100%;
+    min-height: 250px;
+    border: 5px solid $oxford-blue;
+    border-radius: 10px;
+    animation: showTitle 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  #prediction {
+    margin-top: 5vh;
+    animation: showSubtitle 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  #back-button-container {
+    margin-top: 5vh;
+    border-radius: 10px;
+    background-color: $dim-gray;
+    width: min-content;
+    height: min-content;
+    animation: showBackButton 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    #back-button {
+      background-color: $oxford-blue;
+      border-radius: 10px;
+      width: max-content;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform ease 0.3s;
+
+      &:hover {
+        transform: translateY(-10px) translateX(-10px);
+        cursor: pointer
+      }
+
+      p {
+        text-align: center;
+        color: $lavender;
+      }
+    }
+  }
+}
+
+.hide-all {
+  animation: hideAll 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+
+.disabled {
+  display: none !important;
+}
+
+.show-button-1-fast {
+  animation: showButton1Fast 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.show-button-2-fast {
+  animation: showButton2Fast 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+@keyframes backgroundAnimation {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes showTitle {
+
+  0%,
+  50% {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showSubtitle {
+
+  0%,
+  33%,
+  66% {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showButton1 {
+
+  0%,
+  75% {
+    transform: translateX(-5%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showButton2 {
+
+  0%,
+  75% {
+    transform: translateX(5%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showButton1Fast {
+
+  0%,
+  50% {
+    transform: translateX(-5%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showButton2Fast {
+
+  0%,
+  50% {
+    transform: translateX(5%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes showBackButton {
+
+  0%,
+  75% {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes hideButton1 {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-5%);
+    opacity: 0;
+  }
+}
+
+@keyframes hideButton2 {
+  0% {
+    transform: translateX(5%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(5%);
+    opacity: 0;
+  }
+}
+
+@keyframes hideAll {
+  0%,
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+}
+
+
+@mixin mediaQueries(
+  $h1_font_size,
+  $h2_font_size,
+  $p_font_size,
+  $button_width
+  ) {
+  h1 {
+    font-size: $h1_font_size
+  }
+
+  h2,
+  #prediction {
+    font-size: $h2_font_size
+  }
+
+  p {
+    font-size: $p_font_size
+  }
+
+  #buttons {
+    width: $button_width
+  }
+
+  #back-button {
+    padding-left: $p_font_size;
+    padding-right: $p_font_size;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  @include mediaQueries(40px, 20px, 16px, 80%);
+
+  #buttons {
+    flex-direction: column;
+    margin-top: 5vh !important;
+
+    .button-container {
+      height: 20vh;
+      width: 90%;
+
+      img {
+        width: 12%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  @include mediaQueries(44px, 22px, 16px, 70%);
+
+  #buttons {
+    flex-direction: row;
+
+    .button-container {
+      width: 40%;
+      height: 25vh;
+
+      img {
+        width: 20%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  @include mediaQueries(48px, 24px, 16px, 65%);
+}
+
+@media only screen and (min-width: 992px) {
+  @include mediaQueries(52px, 26px, 18px, 60%);
+}
+
+@media only screen and (min-width: 1200px) {
+  @include mediaQueries(56px, 28px, 20px, 55%);
+}

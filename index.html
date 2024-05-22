@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link>
+  </head>
+  <body>
+    <h1>FractureAI</h1>
+    <h2 id="subtitle">¡Confíe en la Inteligencia Artificial para determinar si un hueso está fracturado!</h2>
+    <div id="buttons">
+      <div class="button-container" id="bc-1">
+        <div class="button">
+          <p>Suba una foto de rayos X desde su dispositivo</p>
+          <img src="./img/upload.png"/>
+          <input type="file"/>
+        </div>
+      </div>
+      <h2 id="o">o</h2>
+      <div class="button-container" id="bc-2">
+        <div class="button">
+          <p>Utilice su cámara para escanear la foto</p>
+          <img src="./img/camera.png"/>
+        </div>
+      </div>
+    </div>
+    <p class="disabled" id="prediction">Realizando predicción...</p>
+    <img id="image" class="disabled" src=""></img>
+    <canvas class="disabled" id="img-canvas"></canvas>
+    <canvas class="disabled" id="canvas"></canvas>
+    <canvas class="disabled" id="other-canvas"></canvas>
+    <video id="video" playsinline autoplay style="width: 1px;"></video>
+    <div class="disabled" id="back-button-container">
+      <div id="back-button">
+        <p>Volver</p>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="./js/tfProcessing.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
