@@ -81,15 +81,15 @@ function predecir() {
 
     var imgData = ctx2.getImageData(0, 0, 224, 224);
     var arr = []; //El arreglo completo
-    var arr64 = []; //Al llegar a arr64 posiciones se pone en 'arr' como un nuevo indice
+    var arr224 = []; //Al llegar a arr224 posiciones se pone en 'arr' como un nuevo indice
     for (var p = 0, i = 0; p < imgData.data.length; p += 4) {
       var red = imgData.data[p] / 255;
       var green = imgData.data[p + 1] / 255;
       var blue = imgData.data[p + 2] / 255;
-      arr64.push([red, green, blue]); //Agregar al arr64 y normalizar a 0-1. Aparte queda dentro de un arreglo en el indice 0... again
-      if (arr64.length == 224) {
-        arr.push(arr64);
-        arr64 = [];
+      arr224.push([red, green, blue]); //Agregar al arr224 y normalizar a 0-1. Aparte queda dentro de un arreglo en el indice 0... again
+      if (arr224.length == 224) {
+        arr.push(arr224);
+        arr224 = [];
       }
     }
 
