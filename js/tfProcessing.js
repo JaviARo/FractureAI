@@ -257,8 +257,6 @@ async function predecirImagen(imageElement) {
       }
     }
 
-    console.log("Datos de entrada al modelo:", arr);
-
     arr = [arr];
     var tensor4 = tf.tensor4d(arr);
     var resultados = modelo.predict(tensor4).dataSync();
