@@ -16,14 +16,10 @@ window.addEventListener('dragover', (event) => {
   draggableButton.classList.add("draggable")
 })
 
-window.addEventListener('dragleave', (event) => {
-  event.preventDefault();
-  p = draggableButton.querySelector("p")
-  p.innerText = "Suba una foto de rayos X desde su dispositivo"
-  draggableButton.classList.remove("draggable")
-})
+window.addEventListener('dragleave', fileButtonBackwards())
 
 window.addEventListener('drop', (event) => {
+  fileButtonBackwards()
   const dt = event.dataTransfer;
   const files = dt.files[0];
 
@@ -31,6 +27,12 @@ window.addEventListener('drop', (event) => {
     fileInput.files = files;
   }
 })
+
+function fileButtonBackwards() {
+  p = draggableButton.querySelector("p")
+  p.innerText = "Suba una foto de rayos X desde su dispositivo"
+  draggableButton.classList.remove("draggable")
+}
 
 fileInput.addEventListener('change', (event) => {
   const files = event.target.files;
