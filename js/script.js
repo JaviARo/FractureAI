@@ -48,7 +48,7 @@ fileInput.addEventListener('change', (event) => {
       results.classList.remove("disabled");
       img.classList.remove("disabled");
       bbc.classList.remove("disabled");
-      window.predecirImagen(img);
+      window.predictSubmitImage(img);
     }, 500)
   }
 });
@@ -63,7 +63,7 @@ cameraButton.addEventListener('click', (event) => {
     results.classList.remove("disabled");
     cv.classList.remove("disabled");
     bbc.classList.remove("disabled");
-    window.mostrarCamara()
+    window.showCamera()
   }, 500)
 });
 
@@ -76,6 +76,9 @@ bbc.addEventListener('click', (event) => {
     }, 500)
   } else {
     cv.classList.add("hide-all");
+    if (currentStream) {
+      window.stopCamera()
+    }
     setTimeout(() => {
       cv.classList.add("disabled");
       cv.classList.remove("hide-all");
